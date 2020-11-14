@@ -1,9 +1,14 @@
 import Router from 'express';
+import { root } from '../config/configurations.js';
+
+import assets from './assets-routes.js';
 
 const routes = Router();
 
+routes.use(assets);
+
 routes.get("/", (request, response) => {
-    response.send("to dentro do arquivo de rotas");
+    response.sendFile('./views/home.html', { root });
 });
 
 export default routes;

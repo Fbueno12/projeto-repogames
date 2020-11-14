@@ -1,15 +1,13 @@
 import express from 'express';
 import routes from './routes/index.js';
-
-import path from 'path';
-const root = path.resolve("./src");
+import { root } from './config/configurations.js';
 
 const app = express();
 
 app.use(routes);
 
 app.get("/testeTemplate", (request, response) => {
-    response.sendFile('./views/home.html', { root });
+
 });
 
 app.listen(8080, () => {
